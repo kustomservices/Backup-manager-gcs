@@ -80,7 +80,7 @@ class Filesystem_bkp{
 	private function _checkIntegrity()
 	{
 		$destination = $this->get_task_destination();
-		$command = 'gunzip -c '.$destination.' | tar t > /dev/null && echo '.self::MSGOK.' || echo '.self::MSGFAIL;
+		$command = 'gzip -d -c '.$destination.' | tar t > /dev/null && echo '.self::MSGOK.' || echo '.self::MSGFAIL;
 		if(file_exists($destination))
 		{
 			# check

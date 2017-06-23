@@ -88,7 +88,7 @@ class Database_bkp{
 	private function _checkIntegrity()
 	{
 		$destination = $this->get_task_destination();
-		$command = 'gunzip -c '.$destination.' > /dev/null && echo '.self::MSGOK.' || echo '.self::MSGFAIL;
+		$command = 'gzip -d -c '.$destination.' > /dev/null && echo '.self::MSGOK.' || echo '.self::MSGFAIL;
 		if(file_exists($destination))
 		{
 			# check
